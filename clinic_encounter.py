@@ -14,7 +14,7 @@ Please upload raw data file in CSV
 uploaded_file = st.file_uploader("Choose a CSV file")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    df = df.dropna(axis =1)
+    df = df.dropna(axis =1) 
     st.dataframe(df)
     
     df['cln enc date'] = pd.to_datetime(df['cln enc date'])
@@ -26,7 +26,7 @@ if uploaded_file is not None:
     
     res_name = df.loc[df['prvdr']== option]
     st.write ('**Provider:**', res_name.iloc[0]['prvdr'])
-    st.write ('**Encounter Dates:**', res_name['cln enc date'].min(), 'to', res_name['cln enc date'].max(), '\n')
+    st.write ('**Encounter Dates:**', res_name['cln enc date'].min(), 'to', res_name['cln enc date'].max())
     st.write ('**Total Encounters:**', res_name['prvdr'].count())
     st.write ('**Age Groups (QTY)**')
     st.write ('Age < 10:', res_name.loc[res_name['patient age'] <= 10 , 'patient age'].count())
