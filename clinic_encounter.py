@@ -14,6 +14,7 @@ Please upload raw data file in CSV
 uploaded_file = st.file_uploader("Choose a CSV file")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+    df = df.dropna(axis =1)
     st.dataframe(df)
     
     df['cln enc date'] = pd.to_datetime(df['cln enc date'])
