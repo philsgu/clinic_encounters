@@ -11,7 +11,7 @@ Requirements:
 
 Please upload raw data file in CSV
 """
-uploaded_file = st.file_uploader("Choose a CSV file")
+uploaded_file = st.file_uploader("Choose a CSV file", type =['csv'])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     df = df.dropna(axis =1) 
